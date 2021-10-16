@@ -72,6 +72,17 @@ namespace WindowsFormsApp1
             Submit_Tsql_NonQuery(SQL_Code);
         }
 
+        public void Build_4_Tsql_CreateLeaseBook()
+        {
+            string SQL_Code = @"CREATE TABLE tableasebook(
+                                名稱          char(128)       not null    primary key,
+                                租借帳號         char(128)       not null,
+                                租借時間        date        not null,
+                                還期日             date,
+                                )";
+            Submit_Tsql_NonQuery(SQL_Code);
+        }
+
         public string Select_0_Tsql_Login(string Enter_Account="",string Enter_Password="")
         {
             Enter_Account = " " + Enter_Account;//??
@@ -213,6 +224,11 @@ namespace WindowsFormsApp1
                 return true;
         }
         
+        public string Select_4_Tsql_EnterAdmin_EnterFirst()
+        {
+            string SQL_Code = "SELECT member.管理員,member.名稱 FROM tab tabaccount acc INNER JOIN tabmember member WHERE member.帳號 = acc.acc";
+            return null;
+        }
         public void Insert_0_Tsql_InsertAccount(string r_email, string r_account, string r_password)
         {
             string SQL_Code = "INSERT INTO tabAccount values(' " + r_account + @"','" + r_password + @"','" + r_email + @"')";
