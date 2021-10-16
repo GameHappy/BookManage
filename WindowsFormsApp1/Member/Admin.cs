@@ -16,5 +16,25 @@ namespace WindowsFormsApp1.Member
         {
             InitializeComponent();
         }
+
+        private void LeaseBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReturnBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LeaseStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OverdueBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
