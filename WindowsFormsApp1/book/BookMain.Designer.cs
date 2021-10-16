@@ -36,6 +36,8 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.resetbutton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +94,7 @@ namespace WindowsFormsApp1
             // 
             // resetbutton
             // 
-            this.resetbutton.Location = new System.Drawing.Point(218, 233);
+            this.resetbutton.Location = new System.Drawing.Point(218, 159);
             this.resetbutton.Name = "resetbutton";
             this.resetbutton.Size = new System.Drawing.Size(103, 35);
             this.resetbutton.TabIndex = 3;
@@ -102,16 +104,38 @@ namespace WindowsFormsApp1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(327, 241);
+            this.textBox1.Location = new System.Drawing.Point(327, 167);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(71, 22);
             this.textBox1.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(218, 195);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(103, 35);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "重製會員";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(218, 233);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(103, 35);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "重製租借清單";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // BookMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 275);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.resetbutton);
             this.Controls.Add(this.groupBox1);
@@ -135,5 +159,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button resetbutton;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -74,7 +74,8 @@ namespace WindowsFormsApp1
 
         public void Build_4_Tsql_CreateLeaseBook()
         {
-            string SQL_Code = @"CREATE TABLE tableasebook(
+            string SQL_Code = @"drop table if exists tableasebook;
+                                CREATE TABLE tableasebook(
                                 名稱          char(128)       not null    primary key,
                                 租借帳號         char(128)       not null,
                                 租借時間        date        not null,
@@ -226,9 +227,75 @@ namespace WindowsFormsApp1
         
         public string Select_4_Tsql_EnterAdmin_EnterFirst()
         {
-            string SQL_Code = "SELECT member.管理員,member.名稱 FROM tab tabaccount acc INNER JOIN tabmember member WHERE member.帳號 = acc.acc";
+            string SQL_Code = "SELECT mem.管理員,mem.名稱 FROM tabmember mem INNER JOIN tabaccount acc WHERE mem.電子郵件 = acc.email";
             return null;
         }
+
+        public string Select_5_Tsql_SearchMember(string MemberAcc)
+        {
+            string SQL_Code = "SELECT * FROM tabmember WHERE 帳號 = '" + MemberAcc + "'";
+            string SQL_Outdata = "";
+            try
+            {
+                using (var connection = new MySqlConnection(myConnectionString))
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand(SQL_Code, connection))
+                    {
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            if (MemberAcc == Convert.ToString(dataReader["帳號"]))
+                            {
+                                SQL_Outdata += Convert.ToString(dataReader["電子郵件"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["名稱"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["聯絡電話"]);
+                                return SQL_Outdata;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+                return "";
+        }
+        public string Select_6_Tsql_SearchBook(string BookName)
+        {
+            string SQL_Code = "SELECT * FROM tabbook WHERE 名稱 = '" + BookName + "'";
+            string SQL_Outdata = "";
+            try
+            {
+                using (var connection = new MySqlConnection(myConnectionString))
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand(SQL_Code, connection))
+                    {
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            if (BookName == Convert.ToString(dataReader["名稱"]))
+                            {
+                                SQL_Outdata += Convert.ToString(dataReader["作者"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["出版社"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["價格"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["ISBN"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["分類"]);
+                                return SQL_Outdata;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+            return "";
+        }
+
         public void Insert_0_Tsql_InsertAccount(string r_email, string r_account, string r_password)
         {
             string SQL_Code = "INSERT INTO tabAccount values(' " + r_account + @"','" + r_password + @"','" + r_email + @"')";

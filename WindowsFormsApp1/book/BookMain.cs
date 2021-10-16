@@ -50,5 +50,23 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "zxcv5716")
+            {
+                new MSql().Build_3_Tsql_CreateMember();
+                MessageBox.Show("重製完成");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "zxcv5716")
+            {
+                new MSql().Build_4_Tsql_CreateLeaseBook();
+                MessageBox.Show("重製完成");
+            }
+        }
     }
 }
