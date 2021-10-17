@@ -17,8 +17,16 @@ namespace WindowsFormsApp1.Member
             InitializeComponent();
         }
 
+        private void AllGroupHide()
+        {
+            LeaseBook_Group.Visible = false;
+           // ReturnBook_Group.Visible = false;
+           // LeaseStatus_Group.Visible = false;
+           // OverdueBook_Group.Visible = false;
+        }
         private void LeaseBook_Click(object sender, EventArgs e)
         {
+            LeaseBook_Group.Visible = true;
             LeaseBook_Group.Location = new Point(90, 10);
             LeaseBook_btnF.Enabled = false;
             LeaseBook_btnM.Text = "確認";
@@ -27,6 +35,7 @@ namespace WindowsFormsApp1.Member
             LeaseBook_txt2.Enabled = true;
             LeaseBook_lab3.Text = "";
             LeaseBook_lab4.Text = "";
+            LeaseBook_btnF.Enabled = false;
         }
 
         private void ReturnBook_Click(object sender, EventArgs e)
@@ -53,7 +62,7 @@ namespace WindowsFormsApp1.Member
                 {
                     string[] MD = new string[0];
                     MD = MemberData.Split('|');
-                    LeaseBook_lab3.Text = "會員名稱:" + MD[1] + "\n電子郵件:" + MD[0] + "\n電話號碼:" + MD[2];
+                    LeaseBook_lab3.Text = "會員名稱:" + MD[2] + "\n電子郵件:" + MD[1] + "\n電話號碼:" + MD[4];
                     LeaseBook_txt1.Enabled = false;
                     LeaseBook_btnM.Text = "取消";
                 }
@@ -79,9 +88,17 @@ namespace WindowsFormsApp1.Member
                 string BookData = new MSql().Select_6_Tsql_SearchBook(LeaseBook_txt2.Text);
                 if (BookData != "")
                 {
-                    string[] BD = new string[0];
+                    string[] BD = new string[0];/*
+                                                 名稱"]
+                                                 作者"]
+                                                 出版社
+                                                 出版日期
+                                                 價格"]
+                                                 ISBN"]
+                                                 分類"]
+                                                 */
                     BD = BookData.Split('|');
-                    LeaseBook_lab4.Text = "會員名稱:" + BD[1] + "\n電子郵件:" + BD[0] + "\n電話號碼:" + BD[2];
+                    LeaseBook_lab4.Text = "作者:" + BD[1] + "\n出版社:" + BD[2] + "\n價格:" + BD[4] + "\nISBN:" + BD[5] + "\n分類:" + BD[6];
                     LeaseBook_txt2.Enabled = false;
                     LeaseBook_btnB.Text = "取消";
                 }
@@ -102,6 +119,17 @@ namespace WindowsFormsApp1.Member
         private void LeaseBook_btnF_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+            AllGroupHide();
+        }
+        private void Admin_Update()
+        {
+            if (LeaseBook_btnM.Text == "取消" && LeaseBook_btnB.Text == "取消")
+                LeaseBook_btnF.Enabled = true;
+            else LeaseBook_btnF.Enabled = false;
         }
     }
 }

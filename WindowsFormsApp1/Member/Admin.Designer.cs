@@ -34,19 +34,19 @@ namespace WindowsFormsApp1.Member
             this.LeaseBook_btn = new System.Windows.Forms.Button();
             this.ReturnBook_btn = new System.Windows.Forms.Button();
             this.LeaseBook_Group = new System.Windows.Forms.GroupBox();
-            this.LeaseBook_lab1 = new System.Windows.Forms.Label();
-            this.LeaseBook_txt1 = new System.Windows.Forms.TextBox();
-            this.LeaseBook_lab3 = new System.Windows.Forms.Label();
-            this.LeaseBook_lab2 = new System.Windows.Forms.Label();
-            this.LeaseBook_txt2 = new System.Windows.Forms.TextBox();
-            this.LeaseBook_lab4 = new System.Windows.Forms.Label();
-            this.LeaseRadio3 = new System.Windows.Forms.RadioButton();
-            this.LeaseRadio1 = new System.Windows.Forms.RadioButton();
-            this.LeaseRadio2 = new System.Windows.Forms.RadioButton();
-            this.LeaseBook_lab5 = new System.Windows.Forms.Label();
-            this.LeaseBook_btnF = new System.Windows.Forms.Button();
-            this.LeaseBook_btnM = new System.Windows.Forms.Button();
             this.LeaseBook_btnB = new System.Windows.Forms.Button();
+            this.LeaseBook_btnM = new System.Windows.Forms.Button();
+            this.LeaseBook_btnF = new System.Windows.Forms.Button();
+            this.LeaseBook_lab5 = new System.Windows.Forms.Label();
+            this.LeaseRadio2 = new System.Windows.Forms.RadioButton();
+            this.LeaseRadio1 = new System.Windows.Forms.RadioButton();
+            this.LeaseRadio3 = new System.Windows.Forms.RadioButton();
+            this.LeaseBook_lab4 = new System.Windows.Forms.Label();
+            this.LeaseBook_txt2 = new System.Windows.Forms.TextBox();
+            this.LeaseBook_lab2 = new System.Windows.Forms.Label();
+            this.LeaseBook_lab3 = new System.Windows.Forms.Label();
+            this.LeaseBook_txt1 = new System.Windows.Forms.TextBox();
+            this.LeaseBook_lab1 = new System.Windows.Forms.Label();
             this.LeaseBook_Group.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,77 +111,44 @@ namespace WindowsFormsApp1.Member
             this.LeaseBook_Group.TabIndex = 4;
             this.LeaseBook_Group.TabStop = false;
             // 
-            // LeaseBook_lab1
+            // LeaseBook_btnB
             // 
-            this.LeaseBook_lab1.AutoSize = true;
-            this.LeaseBook_lab1.Location = new System.Drawing.Point(11, 26);
-            this.LeaseBook_lab1.Name = "LeaseBook_lab1";
-            this.LeaseBook_lab1.Size = new System.Drawing.Size(53, 12);
-            this.LeaseBook_lab1.TabIndex = 0;
-            this.LeaseBook_lab1.Text = "會員帳號";
+            this.LeaseBook_btnB.Location = new System.Drawing.Point(330, 18);
+            this.LeaseBook_btnB.Name = "LeaseBook_btnB";
+            this.LeaseBook_btnB.Size = new System.Drawing.Size(38, 23);
+            this.LeaseBook_btnB.TabIndex = 10;
+            this.LeaseBook_btnB.Text = "確認";
+            this.LeaseBook_btnB.UseVisualStyleBackColor = true;
+            this.LeaseBook_btnB.Click += new System.EventHandler(this.LeaseBook_btnB_Click);
             // 
-            // LeaseBook_txt1
+            // LeaseBook_btnM
             // 
-            this.LeaseBook_txt1.Location = new System.Drawing.Point(70, 18);
-            this.LeaseBook_txt1.Name = "LeaseBook_txt1";
-            this.LeaseBook_txt1.Size = new System.Drawing.Size(70, 22);
-            this.LeaseBook_txt1.TabIndex = 1;
+            this.LeaseBook_btnM.Location = new System.Drawing.Point(146, 18);
+            this.LeaseBook_btnM.Name = "LeaseBook_btnM";
+            this.LeaseBook_btnM.Size = new System.Drawing.Size(38, 23);
+            this.LeaseBook_btnM.TabIndex = 9;
+            this.LeaseBook_btnM.Text = "確認";
+            this.LeaseBook_btnM.UseVisualStyleBackColor = true;
+            this.LeaseBook_btnM.Click += new System.EventHandler(this.LeaseBook_btnM_Click);
             // 
-            // LeaseBook_lab3
+            // LeaseBook_btnF
             // 
-            this.LeaseBook_lab3.AutoSize = true;
-            this.LeaseBook_lab3.Location = new System.Drawing.Point(11, 50);
-            this.LeaseBook_lab3.Name = "LeaseBook_lab3";
-            this.LeaseBook_lab3.Size = new System.Drawing.Size(53, 12);
-            this.LeaseBook_lab3.TabIndex = 2;
-            this.LeaseBook_lab3.Text = "會員資訊";
+            this.LeaseBook_btnF.Location = new System.Drawing.Point(416, 100);
+            this.LeaseBook_btnF.Name = "LeaseBook_btnF";
+            this.LeaseBook_btnF.Size = new System.Drawing.Size(49, 23);
+            this.LeaseBook_btnF.TabIndex = 5;
+            this.LeaseBook_btnF.Text = "租借";
+            this.LeaseBook_btnF.UseVisualStyleBackColor = true;
+            this.LeaseBook_btnF.Click += new System.EventHandler(this.LeaseBook_btnF_Click);
             // 
-            // LeaseBook_lab2
+            // LeaseBook_lab5
             // 
-            this.LeaseBook_lab2.AutoSize = true;
-            this.LeaseBook_lab2.Location = new System.Drawing.Point(195, 23);
-            this.LeaseBook_lab2.Name = "LeaseBook_lab2";
-            this.LeaseBook_lab2.Size = new System.Drawing.Size(53, 12);
-            this.LeaseBook_lab2.TabIndex = 3;
-            this.LeaseBook_lab2.Text = "書本名稱";
-            // 
-            // LeaseBook_txt2
-            // 
-            this.LeaseBook_txt2.Location = new System.Drawing.Point(254, 18);
-            this.LeaseBook_txt2.Name = "LeaseBook_txt2";
-            this.LeaseBook_txt2.Size = new System.Drawing.Size(70, 22);
-            this.LeaseBook_txt2.TabIndex = 4;
-            // 
-            // LeaseBook_lab4
-            // 
-            this.LeaseBook_lab4.AutoSize = true;
-            this.LeaseBook_lab4.Location = new System.Drawing.Point(195, 50);
-            this.LeaseBook_lab4.Name = "LeaseBook_lab4";
-            this.LeaseBook_lab4.Size = new System.Drawing.Size(53, 12);
-            this.LeaseBook_lab4.TabIndex = 5;
-            this.LeaseBook_lab4.Text = "書本資訊";
-            // 
-            // LeaseRadio3
-            // 
-            this.LeaseRadio3.AutoSize = true;
-            this.LeaseRadio3.Location = new System.Drawing.Point(416, 78);
-            this.LeaseRadio3.Name = "LeaseRadio3";
-            this.LeaseRadio3.Size = new System.Drawing.Size(47, 16);
-            this.LeaseRadio3.TabIndex = 6;
-            this.LeaseRadio3.TabStop = true;
-            this.LeaseRadio3.Text = "14天";
-            this.LeaseRadio3.UseVisualStyleBackColor = true;
-            // 
-            // LeaseRadio1
-            // 
-            this.LeaseRadio1.AutoSize = true;
-            this.LeaseRadio1.Location = new System.Drawing.Point(416, 34);
-            this.LeaseRadio1.Name = "LeaseRadio1";
-            this.LeaseRadio1.Size = new System.Drawing.Size(41, 16);
-            this.LeaseRadio1.TabIndex = 6;
-            this.LeaseRadio1.TabStop = true;
-            this.LeaseRadio1.Text = "3天";
-            this.LeaseRadio1.UseVisualStyleBackColor = true;
+            this.LeaseBook_lab5.AutoSize = true;
+            this.LeaseBook_lab5.Location = new System.Drawing.Point(414, 19);
+            this.LeaseBook_lab5.Name = "LeaseBook_lab5";
+            this.LeaseBook_lab5.Size = new System.Drawing.Size(53, 12);
+            this.LeaseBook_lab5.TabIndex = 8;
+            this.LeaseBook_lab5.Text = "租借時間";
             // 
             // LeaseRadio2
             // 
@@ -194,44 +161,77 @@ namespace WindowsFormsApp1.Member
             this.LeaseRadio2.Text = "7天";
             this.LeaseRadio2.UseVisualStyleBackColor = true;
             // 
-            // LeaseBook_lab5
+            // LeaseRadio1
             // 
-            this.LeaseBook_lab5.AutoSize = true;
-            this.LeaseBook_lab5.Location = new System.Drawing.Point(414, 19);
-            this.LeaseBook_lab5.Name = "LeaseBook_lab5";
-            this.LeaseBook_lab5.Size = new System.Drawing.Size(53, 12);
-            this.LeaseBook_lab5.TabIndex = 8;
-            this.LeaseBook_lab5.Text = "租借時間";
+            this.LeaseRadio1.AutoSize = true;
+            this.LeaseRadio1.Location = new System.Drawing.Point(416, 34);
+            this.LeaseRadio1.Name = "LeaseRadio1";
+            this.LeaseRadio1.Size = new System.Drawing.Size(41, 16);
+            this.LeaseRadio1.TabIndex = 6;
+            this.LeaseRadio1.TabStop = true;
+            this.LeaseRadio1.Text = "3天";
+            this.LeaseRadio1.UseVisualStyleBackColor = true;
             // 
-            // LeaseBook_btnF
+            // LeaseRadio3
             // 
-            this.LeaseBook_btnF.Location = new System.Drawing.Point(416, 100);
-            this.LeaseBook_btnF.Name = "LeaseBook_btnF";
-            this.LeaseBook_btnF.Size = new System.Drawing.Size(49, 23);
-            this.LeaseBook_btnF.TabIndex = 5;
-            this.LeaseBook_btnF.Text = "租借";
-            this.LeaseBook_btnF.UseVisualStyleBackColor = true;
-            this.LeaseBook_btnF.Click += new System.EventHandler(this.LeaseBook_btnF_Click);
+            this.LeaseRadio3.AutoSize = true;
+            this.LeaseRadio3.Location = new System.Drawing.Point(416, 78);
+            this.LeaseRadio3.Name = "LeaseRadio3";
+            this.LeaseRadio3.Size = new System.Drawing.Size(47, 16);
+            this.LeaseRadio3.TabIndex = 6;
+            this.LeaseRadio3.TabStop = true;
+            this.LeaseRadio3.Text = "14天";
+            this.LeaseRadio3.UseVisualStyleBackColor = true;
             // 
-            // LeaseBook_btnM
+            // LeaseBook_lab4
             // 
-            this.LeaseBook_btnM.Location = new System.Drawing.Point(146, 18);
-            this.LeaseBook_btnM.Name = "LeaseBook_btnM";
-            this.LeaseBook_btnM.Size = new System.Drawing.Size(38, 23);
-            this.LeaseBook_btnM.TabIndex = 9;
-            this.LeaseBook_btnM.Text = "確認";
-            this.LeaseBook_btnM.UseVisualStyleBackColor = true;
-            this.LeaseBook_btnM.Click += new System.EventHandler(this.LeaseBook_btnM_Click);
+            this.LeaseBook_lab4.AutoSize = true;
+            this.LeaseBook_lab4.Location = new System.Drawing.Point(195, 50);
+            this.LeaseBook_lab4.Name = "LeaseBook_lab4";
+            this.LeaseBook_lab4.Size = new System.Drawing.Size(53, 12);
+            this.LeaseBook_lab4.TabIndex = 5;
+            this.LeaseBook_lab4.Text = "書本資訊";
             // 
-            // LeaseBook_btnB
+            // LeaseBook_txt2
             // 
-            this.LeaseBook_btnB.Location = new System.Drawing.Point(330, 18);
-            this.LeaseBook_btnB.Name = "LeaseBook_btnB";
-            this.LeaseBook_btnB.Size = new System.Drawing.Size(38, 23);
-            this.LeaseBook_btnB.TabIndex = 10;
-            this.LeaseBook_btnB.Text = "確認";
-            this.LeaseBook_btnB.UseVisualStyleBackColor = true;
-            this.LeaseBook_btnB.Click += new System.EventHandler(this.LeaseBook_btnB_Click);
+            this.LeaseBook_txt2.Location = new System.Drawing.Point(254, 18);
+            this.LeaseBook_txt2.Name = "LeaseBook_txt2";
+            this.LeaseBook_txt2.Size = new System.Drawing.Size(70, 22);
+            this.LeaseBook_txt2.TabIndex = 4;
+            // 
+            // LeaseBook_lab2
+            // 
+            this.LeaseBook_lab2.AutoSize = true;
+            this.LeaseBook_lab2.Location = new System.Drawing.Point(195, 23);
+            this.LeaseBook_lab2.Name = "LeaseBook_lab2";
+            this.LeaseBook_lab2.Size = new System.Drawing.Size(53, 12);
+            this.LeaseBook_lab2.TabIndex = 3;
+            this.LeaseBook_lab2.Text = "書本名稱";
+            // 
+            // LeaseBook_lab3
+            // 
+            this.LeaseBook_lab3.AutoSize = true;
+            this.LeaseBook_lab3.Location = new System.Drawing.Point(11, 50);
+            this.LeaseBook_lab3.Name = "LeaseBook_lab3";
+            this.LeaseBook_lab3.Size = new System.Drawing.Size(53, 12);
+            this.LeaseBook_lab3.TabIndex = 2;
+            this.LeaseBook_lab3.Text = "會員資訊";
+            // 
+            // LeaseBook_txt1
+            // 
+            this.LeaseBook_txt1.Location = new System.Drawing.Point(70, 18);
+            this.LeaseBook_txt1.Name = "LeaseBook_txt1";
+            this.LeaseBook_txt1.Size = new System.Drawing.Size(70, 22);
+            this.LeaseBook_txt1.TabIndex = 1;
+            // 
+            // LeaseBook_lab1
+            // 
+            this.LeaseBook_lab1.AutoSize = true;
+            this.LeaseBook_lab1.Location = new System.Drawing.Point(11, 26);
+            this.LeaseBook_lab1.Name = "LeaseBook_lab1";
+            this.LeaseBook_lab1.Size = new System.Drawing.Size(53, 12);
+            this.LeaseBook_lab1.TabIndex = 0;
+            this.LeaseBook_lab1.Text = "會員帳號";
             // 
             // Admin
             // 
@@ -245,6 +245,7 @@ namespace WindowsFormsApp1.Member
             this.Controls.Add(this.LeaseStatus_btn);
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.LeaseBook_Group.ResumeLayout(false);
             this.LeaseBook_Group.PerformLayout();
             this.ResumeLayout(false);

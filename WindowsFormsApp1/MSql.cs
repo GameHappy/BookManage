@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
             電子郵件 char(128)		not null,
             名稱     char(64)       ,
             性別     char(4)       not null,
-            連絡電話 char(16)		not null,
+            聯絡電話 char(16)		not null,
             加入時間 date			not null,
             管理員   bool
             );";
@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
                                 名稱          char(128)       not null    primary key,
                                 租借帳號         char(128)       not null,
                                 租借時間        date        not null,
-                                還期日             date,
+                                還期日             date
                                 )";
             Submit_Tsql_NonQuery(SQL_Code);
         }
@@ -109,7 +109,10 @@ namespace WindowsFormsApp1
                                 if (reader_password == Enter_Password)
                                 {
                                     MessageBox.Show("登入成功");
-                                    new BookMain().Show();
+                                    BookMain BM = new BookMain();
+                                    BM.SetUserAccount(Enter_Account.Replace(" ",""));
+                                    BM.Show();
+                                    
                                     return "login in";
                                 }
                                 else
@@ -225,10 +228,27 @@ namespace WindowsFormsApp1
                 return true;
         }
         
-        public string Select_4_Tsql_EnterAdmin_EnterFirst()
+        public string Select_4_Tsql_AccountToMember(string user_acc)
         {
-            string SQL_Code = "SELECT mem.管理員,mem.名稱 FROM tabmember mem INNER JOIN tabaccount acc WHERE mem.電子郵件 = acc.email";
-            return null;
+            string SQL_Code = "SELECT * FROM tabmember where 帳號 = '" + user_acc + "'";
+            string SQL_OutData = "";
+            using (var connection = new MySqlConnection(myConnectionString))
+            {
+                connection.Open();
+                using (var command = new MySqlCommand(SQL_Code, connection))
+                {
+                    MySqlDataReader dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        for(int i = 0; i < dataReader.FieldCount; i++)
+                        {
+                            SQL_OutData += Convert.ToString( dataReader[i]) +"|";
+                        }
+                        return SQL_OutData.Substring(0, SQL_OutData.Length - 1);
+                    }
+                }
+            }
+            return "";
         }
 
         public string Select_5_Tsql_SearchMember(string MemberAcc)
@@ -247,9 +267,13 @@ namespace WindowsFormsApp1
                         {
                             if (MemberAcc == Convert.ToString(dataReader["帳號"]))
                             {
+                                SQL_Outdata += Convert.ToString(dataReader["帳號"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["電子郵件"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["名稱"]) + "|";
-                                SQL_Outdata += Convert.ToString(dataReader["聯絡電話"]);
+                                SQL_Outdata += Convert.ToString(dataReader["性別"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["聯絡電話"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["加入時間"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["管理員"]);
                                 return SQL_Outdata;
                             }
                         }
@@ -278,8 +302,10 @@ namespace WindowsFormsApp1
                         {
                             if (BookName == Convert.ToString(dataReader["名稱"]))
                             {
+                                SQL_Outdata += Convert.ToString(dataReader["名稱"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["作者"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["出版社"]) + "|";
+                                SQL_Outdata += Convert.ToString(dataReader["出版日期"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["價格"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["ISBN"]) + "|";
                                 SQL_Outdata += Convert.ToString(dataReader["分類"]);
@@ -328,6 +354,18 @@ namespace WindowsFormsApp1
             }
             Submit_Tsql_NonQuery(SQL_Code);
         }
+
+        public void Insert_3_Tsql_InsertMember(string r_account,string r_email,string r_name,string r_gender, string r_phone,bool r_admin)
+        {
+            string r_date = DateTime.Now.Year.ToString();
+            if (DateTime.Now.Month < 10) r_date += "0";
+            r_date += DateTime.Now.Month;
+            if (DateTime.Now.Day < 10) r_date += "0";
+            r_date += DateTime.Now.Day;
+            string SQL_Code = "INSERT INTO tabmember VALUES('" + r_account + "','" + r_email + "','" +  r_name + "','" + r_gender + "','" + r_phone + "','" +  r_date + "', " +r_admin + ")";
+            Submit_Tsql_NonQuery(SQL_Code);
+        }
+
         public void Update_1_Tsql_UpdateTabBook(int index, string[] _bookdata)
         {
 
@@ -353,11 +391,7 @@ namespace WindowsFormsApp1
         }
 
         //----------------------------------------------------------------------------------------
-        public void Submit_Tsql_NonQuery(
-           string tsqlSourceCode,
-           string parameterName = null,
-           string parameterValue = null
-           )
+        public void Submit_Tsql_NonQuery(string tsqlSourceCode)
         {
             try
             {

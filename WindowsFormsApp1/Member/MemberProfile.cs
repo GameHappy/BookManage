@@ -16,5 +16,18 @@ namespace WindowsFormsApp1.Member
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] MP = new string[0];
+            if (admin_txt.Text != "zxcv5716")
+            {
+
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
