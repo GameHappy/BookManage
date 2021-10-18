@@ -70,7 +70,6 @@ namespace WindowsFormsApp1.Member
                 {
                     MessageBox.Show("找不到用戶");
                 }
-                
             }
             else
             {
@@ -78,7 +77,7 @@ namespace WindowsFormsApp1.Member
                 LeaseBook_lab3.Text = "";
                 LeaseBook_btnM.Text = "確認";
             }
-            
+            Admin_Update();
         }
 
         private void LeaseBook_btnB_Click(object sender, EventArgs e)
@@ -88,15 +87,7 @@ namespace WindowsFormsApp1.Member
                 string BookData = new MSql().Select_6_Tsql_SearchBook(LeaseBook_txt2.Text);
                 if (BookData != "")
                 {
-                    string[] BD = new string[0];/*
-                                                 名稱"]
-                                                 作者"]
-                                                 出版社
-                                                 出版日期
-                                                 價格"]
-                                                 ISBN"]
-                                                 分類"]
-                                                 */
+                    string[] BD = new string[0];
                     BD = BookData.Split('|');
                     LeaseBook_lab4.Text = "作者:" + BD[1] + "\n出版社:" + BD[2] + "\n價格:" + BD[4] + "\nISBN:" + BD[5] + "\n分類:" + BD[6];
                     LeaseBook_txt2.Enabled = false;
@@ -114,10 +105,31 @@ namespace WindowsFormsApp1.Member
                 LeaseBook_lab4.Text = "";
                 LeaseBook_btnB.Text = "確認";
             }
+            Admin_Update();
         }
 
         private void LeaseBook_btnF_Click(object sender, EventArgs e)
         {
+            int RadioIndex=0;//3,7,14
+            if (LeaseRadio1.Checked) RadioIndex = 3;
+            if (LeaseRadio2.Checked) RadioIndex = 7;
+            if (LeaseRadio3.Checked) RadioIndex = 14;
+            
+            string Lease_UserAccount = LeaseBook_txt1.Text;
+            string Lease_BookName = LeaseBook_txt2.Text;
+            DateTime Lease_Time = DateTime.Now;
+            DateTime Return_Time = Lease_Time.AddDays(RadioIndex);
+            if (RadioIndex == 0)
+            {
+                MessageBox.Show("請選擇租期");
+            }
+            else new MSql().Insert_4_Tsql_InsertLeaseBook(Lease_UserAccount, Lease_BookName, Lease_Time, Return_Time);
+            /*
+             * PublicationDate_Picker1.Format = DateTimePickerFormat.Custom;
+                PublicationDate_Picker2.Format = DateTimePickerFormat.Custom;
+                PublicationDate_Picker1.CustomFormat = "yyyy/MM/dd";
+                PublicationDate_Picker2.CustomFormat = "yyyy/MM/dd";
+             * */
 
         }
 

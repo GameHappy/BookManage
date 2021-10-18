@@ -228,7 +228,7 @@ namespace WindowsFormsApp1
                 return true;
         }
         
-        public string Select_4_Tsql_AccountToMember(string user_acc)
+        public string Select_4_Tsql_AccountToMember(string user_acc)//fail
         {
             string SQL_Code = "SELECT * FROM tabmember where 帳號 = '" + user_acc + "'";
             string SQL_OutData = "";
@@ -366,6 +366,21 @@ namespace WindowsFormsApp1
             Submit_Tsql_NonQuery(SQL_Code);
         }
 
+        public void Insert_4_Tsql_InsertLeaseBook(string UserAccount,string LeaseBookName,DateTime LeaseDate,DateTime  ReturnDate)
+        {
+            string LD = LeaseDate.Year.ToString();
+            if (LeaseDate.Month < 10) LD += "0";
+            LD += LeaseDate.Month;
+            if (LeaseDate.Day < 10) LD += "0";
+            LD += LeaseDate.Day;
+            string RD = ReturnDate.Year.ToString();
+            if (ReturnDate.Month < 10) RD += "0";
+            RD += ReturnDate.Month;
+            if (ReturnDate.Day < 10) RD += "0";
+            RD += ReturnDate.Day;
+            string SQL_Code = "INSERT INTO tableasebook VALUES('" + LeaseBookName + "','" + UserAccount + "','" + LD + "','" + RD + "')";
+            Submit_Tsql_NonQuery(SQL_Code);
+        }
         public void Update_1_Tsql_UpdateTabBook(int index, string[] _bookdata)
         {
 
