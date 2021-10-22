@@ -47,7 +47,25 @@ namespace WindowsFormsApp1.Member
             this.LeaseBook_lab3 = new System.Windows.Forms.Label();
             this.LeaseBook_txt1 = new System.Windows.Forms.TextBox();
             this.LeaseBook_lab1 = new System.Windows.Forms.Label();
+            this.ReturnBook_Group = new System.Windows.Forms.GroupBox();
+            this.ReturnBook_btn2 = new System.Windows.Forms.Button();
+            this.ReturnBook_txt2 = new System.Windows.Forms.TextBox();
+            this.ReturnBook_name2 = new System.Windows.Forms.Label();
+            this.ReturnBook_btn1 = new System.Windows.Forms.Button();
+            this.ReturnBook_dGV = new System.Windows.Forms.DataGridView();
+            this.ReturnBook_txt = new System.Windows.Forms.TextBox();
+            this.ReturnBook_name = new System.Windows.Forms.Label();
+            this.LeaseStatus_Group = new System.Windows.Forms.GroupBox();
+            this.LeaseStatus_dGV = new System.Windows.Forms.DataGridView();
+            this.OverdueBook_Group = new System.Windows.Forms.GroupBox();
+            this.OverdueBook_dGV = new System.Windows.Forms.DataGridView();
             this.LeaseBook_Group.SuspendLayout();
+            this.ReturnBook_Group.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReturnBook_dGV)).BeginInit();
+            this.LeaseStatus_Group.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LeaseStatus_dGV)).BeginInit();
+            this.OverdueBook_Group.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OverdueBook_dGV)).BeginInit();
             this.SuspendLayout();
             // 
             // LeaseStatus_btn
@@ -105,7 +123,7 @@ namespace WindowsFormsApp1.Member
             this.LeaseBook_Group.Controls.Add(this.LeaseBook_lab3);
             this.LeaseBook_Group.Controls.Add(this.LeaseBook_txt1);
             this.LeaseBook_Group.Controls.Add(this.LeaseBook_lab1);
-            this.LeaseBook_Group.Location = new System.Drawing.Point(90, 10);
+            this.LeaseBook_Group.Location = new System.Drawing.Point(90, 237);
             this.LeaseBook_Group.Name = "LeaseBook_Group";
             this.LeaseBook_Group.Size = new System.Drawing.Size(471, 215);
             this.LeaseBook_Group.TabIndex = 4;
@@ -233,12 +251,127 @@ namespace WindowsFormsApp1.Member
             this.LeaseBook_lab1.TabIndex = 0;
             this.LeaseBook_lab1.Text = "會員帳號";
             // 
+            // ReturnBook_Group
+            // 
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_btn2);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_txt2);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_name2);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_btn1);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_dGV);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_txt);
+            this.ReturnBook_Group.Controls.Add(this.ReturnBook_name);
+            this.ReturnBook_Group.Location = new System.Drawing.Point(103, 12);
+            this.ReturnBook_Group.Name = "ReturnBook_Group";
+            this.ReturnBook_Group.Size = new System.Drawing.Size(376, 224);
+            this.ReturnBook_Group.TabIndex = 5;
+            this.ReturnBook_Group.TabStop = false;
+            // 
+            // ReturnBook_btn2
+            // 
+            this.ReturnBook_btn2.Location = new System.Drawing.Point(262, 63);
+            this.ReturnBook_btn2.Name = "ReturnBook_btn2";
+            this.ReturnBook_btn2.Size = new System.Drawing.Size(40, 22);
+            this.ReturnBook_btn2.TabIndex = 10;
+            this.ReturnBook_btn2.Text = "確認";
+            this.ReturnBook_btn2.UseVisualStyleBackColor = true;
+            this.ReturnBook_btn2.Click += new System.EventHandler(this.ReturnBook_btn2_Click);
+            // 
+            // ReturnBook_txt2
+            // 
+            this.ReturnBook_txt2.Location = new System.Drawing.Point(262, 35);
+            this.ReturnBook_txt2.Name = "ReturnBook_txt2";
+            this.ReturnBook_txt2.Size = new System.Drawing.Size(100, 22);
+            this.ReturnBook_txt2.TabIndex = 9;
+            // 
+            // ReturnBook_name2
+            // 
+            this.ReturnBook_name2.AutoSize = true;
+            this.ReturnBook_name2.Location = new System.Drawing.Point(264, 20);
+            this.ReturnBook_name2.Name = "ReturnBook_name2";
+            this.ReturnBook_name2.Size = new System.Drawing.Size(71, 12);
+            this.ReturnBook_name2.TabIndex = 8;
+            this.ReturnBook_name2.Text = "書名 or ISBN";
+            // 
+            // ReturnBook_btn1
+            // 
+            this.ReturnBook_btn1.Location = new System.Drawing.Point(161, 17);
+            this.ReturnBook_btn1.Name = "ReturnBook_btn1";
+            this.ReturnBook_btn1.Size = new System.Drawing.Size(40, 22);
+            this.ReturnBook_btn1.TabIndex = 7;
+            this.ReturnBook_btn1.Text = "確認";
+            this.ReturnBook_btn1.UseVisualStyleBackColor = true;
+            this.ReturnBook_btn1.Click += new System.EventHandler(this.ReturnBook_btn1_Click);
+            // 
+            // ReturnBook_dGV
+            // 
+            this.ReturnBook_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ReturnBook_dGV.Location = new System.Drawing.Point(16, 45);
+            this.ReturnBook_dGV.Name = "ReturnBook_dGV";
+            this.ReturnBook_dGV.RowTemplate.Height = 24;
+            this.ReturnBook_dGV.Size = new System.Drawing.Size(240, 150);
+            this.ReturnBook_dGV.TabIndex = 6;
+            // 
+            // ReturnBook_txt
+            // 
+            this.ReturnBook_txt.Location = new System.Drawing.Point(55, 17);
+            this.ReturnBook_txt.Name = "ReturnBook_txt";
+            this.ReturnBook_txt.Size = new System.Drawing.Size(100, 22);
+            this.ReturnBook_txt.TabIndex = 1;
+            // 
+            // ReturnBook_name
+            // 
+            this.ReturnBook_name.AutoSize = true;
+            this.ReturnBook_name.Location = new System.Drawing.Point(8, 20);
+            this.ReturnBook_name.Name = "ReturnBook_name";
+            this.ReturnBook_name.Size = new System.Drawing.Size(41, 12);
+            this.ReturnBook_name.TabIndex = 0;
+            this.ReturnBook_name.Text = "還書人";
+            // 
+            // LeaseStatus_Group
+            // 
+            this.LeaseStatus_Group.Controls.Add(this.LeaseStatus_dGV);
+            this.LeaseStatus_Group.Location = new System.Drawing.Point(569, 10);
+            this.LeaseStatus_Group.Name = "LeaseStatus_Group";
+            this.LeaseStatus_Group.Size = new System.Drawing.Size(511, 209);
+            this.LeaseStatus_Group.TabIndex = 6;
+            this.LeaseStatus_Group.TabStop = false;
+            // 
+            // LeaseStatus_dGV
+            // 
+            this.LeaseStatus_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LeaseStatus_dGV.Location = new System.Drawing.Point(6, 13);
+            this.LeaseStatus_dGV.Name = "LeaseStatus_dGV";
+            this.LeaseStatus_dGV.RowTemplate.Height = 24;
+            this.LeaseStatus_dGV.Size = new System.Drawing.Size(499, 190);
+            this.LeaseStatus_dGV.TabIndex = 0;
+            // 
+            // OverdueBook_Group
+            // 
+            this.OverdueBook_Group.Controls.Add(this.OverdueBook_dGV);
+            this.OverdueBook_Group.Location = new System.Drawing.Point(36, 255);
+            this.OverdueBook_Group.Name = "OverdueBook_Group";
+            this.OverdueBook_Group.Size = new System.Drawing.Size(511, 209);
+            this.OverdueBook_Group.TabIndex = 7;
+            this.OverdueBook_Group.TabStop = false;
+            // 
+            // OverdueBook_dGV
+            // 
+            this.OverdueBook_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OverdueBook_dGV.Location = new System.Drawing.Point(6, 13);
+            this.OverdueBook_dGV.Name = "OverdueBook_dGV";
+            this.OverdueBook_dGV.RowTemplate.Height = 24;
+            this.OverdueBook_dGV.Size = new System.Drawing.Size(499, 190);
+            this.OverdueBook_dGV.TabIndex = 0;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 264);
+            this.Controls.Add(this.OverdueBook_Group);
             this.Controls.Add(this.LeaseBook_Group);
+            this.Controls.Add(this.LeaseStatus_Group);
+            this.Controls.Add(this.ReturnBook_Group);
             this.Controls.Add(this.ReturnBook_btn);
             this.Controls.Add(this.LeaseBook_btn);
             this.Controls.Add(this.OverdueBook_btn);
@@ -248,6 +381,13 @@ namespace WindowsFormsApp1.Member
             this.Load += new System.EventHandler(this.Admin_Load);
             this.LeaseBook_Group.ResumeLayout(false);
             this.LeaseBook_Group.PerformLayout();
+            this.ReturnBook_Group.ResumeLayout(false);
+            this.ReturnBook_Group.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReturnBook_dGV)).EndInit();
+            this.LeaseStatus_Group.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LeaseStatus_dGV)).EndInit();
+            this.OverdueBook_Group.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.OverdueBook_dGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +412,17 @@ namespace WindowsFormsApp1.Member
         private System.Windows.Forms.RadioButton LeaseRadio3;
         private System.Windows.Forms.Label LeaseBook_lab4;
         private System.Windows.Forms.TextBox LeaseBook_txt2;
+        private System.Windows.Forms.GroupBox ReturnBook_Group;
+        private System.Windows.Forms.DataGridView ReturnBook_dGV;
+        private System.Windows.Forms.TextBox ReturnBook_txt;
+        private System.Windows.Forms.Label ReturnBook_name;
+        private System.Windows.Forms.Button ReturnBook_btn1;
+        private System.Windows.Forms.Button ReturnBook_btn2;
+        private System.Windows.Forms.TextBox ReturnBook_txt2;
+        private System.Windows.Forms.Label ReturnBook_name2;
+        private System.Windows.Forms.GroupBox LeaseStatus_Group;
+        private System.Windows.Forms.DataGridView LeaseStatus_dGV;
+        private System.Windows.Forms.GroupBox OverdueBook_Group;
+        private System.Windows.Forms.DataGridView OverdueBook_dGV;
     }
 }

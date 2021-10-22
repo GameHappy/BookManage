@@ -322,6 +322,7 @@ namespace WindowsFormsApp1
             return "";
         }
 
+
         public void Insert_0_Tsql_InsertAccount(string r_email, string r_account, string r_password)
         {
             string SQL_Code = "INSERT INTO tabAccount values(' " + r_account + @"','" + r_password + @"','" + r_email + @"')";
@@ -357,18 +358,14 @@ namespace WindowsFormsApp1
 
         public void Insert_3_Tsql_InsertMember(string r_account,string r_email,string r_name,string r_gender, string r_phone,bool r_admin)
         {
-            string r_date = DateTime.Now.Year.ToString();
-            if (DateTime.Now.Month < 10) r_date += "0";
-            r_date += DateTime.Now.Month;
-            if (DateTime.Now.Day < 10) r_date += "0";
-            r_date += DateTime.Now.Day;
+            string r_date = DateTime.Now.ToString("yyyyMMdd");
             string SQL_Code = "INSERT INTO tabmember VALUES('" + r_account + "','" + r_email + "','" +  r_name + "','" + r_gender + "','" + r_phone + "','" +  r_date + "', " +r_admin + ")";
             Submit_Tsql_NonQuery(SQL_Code);
         }
 
         public void Insert_4_Tsql_InsertLeaseBook(string UserAccount,string LeaseBookName,DateTime LeaseDate,DateTime  ReturnDate)
         {
-            string LD = LeaseDate.Year.ToString();
+            /*string LD = LeaseDate.Year.ToString();
             if (LeaseDate.Month < 10) LD += "0";
             LD += LeaseDate.Month;
             if (LeaseDate.Day < 10) LD += "0";
@@ -378,7 +375,8 @@ namespace WindowsFormsApp1
             RD += ReturnDate.Month;
             if (ReturnDate.Day < 10) RD += "0";
             RD += ReturnDate.Day;
-            string SQL_Code = "INSERT INTO tableasebook VALUES('" + LeaseBookName + "','" + UserAccount + "','" + LD + "','" + RD + "')";
+            */
+            string SQL_Code = "INSERT INTO tableasebook VALUES('" + LeaseBookName + "','" + UserAccount + "','" + LeaseDate.ToString("yyyyMMdd") + "','" + ReturnDate.ToString("yyyyMMdd") + "')";
             Submit_Tsql_NonQuery(SQL_Code);
         }
         public void Update_1_Tsql_UpdateTabBook(int index, string[] _bookdata)
@@ -405,6 +403,7 @@ namespace WindowsFormsApp1
             Submit_Tsql_NonQuery(SQL_Code);
         }
 
+
         //----------------------------------------------------------------------------------------
         public void Submit_Tsql_NonQuery(string tsqlSourceCode)
         {
@@ -426,14 +425,23 @@ namespace WindowsFormsApp1
         }
         public object SelectDataSource(string SQL_Code)
         {
-            using (var connection = new MySqlConnection(myConnectionString))
+            try
             {
-                connection.Open();
-                DataTable dataTable = new DataTable();
-                MySqlDataAdapter DataAdapter = new MySqlDataAdapter(SQL_Code, connection);
-                DataAdapter.Fill(dataTable);
-                return dataTable;
+                using (var connection = new MySqlConnection(myConnectionString))
+                {
+                    connection.Open();
+                    DataTable dataTable = new DataTable();
+                    MySqlDataAdapter DataAdapter = new MySqlDataAdapter(SQL_Code, connection);
+                    DataAdapter.Fill(dataTable);
+                    return dataTable;
+                }
             }
+            catch(MySqlException error)
+            {
+                MessageBox.Show(error.ToString());
+                
+            }
+            return null;
         }
     }
 }
